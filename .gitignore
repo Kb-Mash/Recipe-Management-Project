@@ -1,0 +1,36 @@
+# Ignore Python virtual environment files
+*venv/
+venv/
+venv.bak/
+venv.cfg/
+venv.env/
+env/
+ENV/
+
+# Ignore environment variables file
+.env
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore local development files (if any)
+instance/
+
+# Ignore any logs or temporary files
+*.log
+*.pot
+*.po~
+*.swp
+*~
+*.tmp
+
+# Ignore database files
+*.db
+*.sqlite
+db.sqlite3
