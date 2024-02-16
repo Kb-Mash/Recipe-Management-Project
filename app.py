@@ -1,18 +1,8 @@
-""" module for the Flask application setup and routes """
+#!/usr/bin/env python3
+# create an application
+from recipe_website import create_app
 
-from flask import Flask, render_template
-""" To-Do - Database from flask_sqlalchemy import SQLAlchemy """
+app = create_app()
 
-app = Flask(__name__)
-
-"""
-To-Do - Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///recipes.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-"""
-
-@app.route('/')
-def index():
-    return render_template('index.html')
+if __name__ == '__main__':
+    app.run(debug=True) # to-do - False for production
