@@ -1,0 +1,23 @@
+<!-- extend the base/index template-->
+{% extends "index.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form method="POST" action="">
+    <h1 align="center">Login</h1>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Enter Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <br>
+    <a href="/sign-up">Don't have an account? Sign up here</a>
+</form>
+{% endblock %}
