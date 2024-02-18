@@ -8,3 +8,4 @@ A web application for managing recipes. Users will be able to register, login, a
 - Flask-SQLAlchemy for database migration
 - Flask-WTF for form handling and validation
 - Flask-Login for user authentication
+- Bootstrap for frontend styling
