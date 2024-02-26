@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # create an application
-from recipe_website import create_app, create_database
+from recipe_website import create_app
 
 app = create_app()
 

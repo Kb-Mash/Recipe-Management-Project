@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1 align="center">Welcome {{ user }}</h1>
+    <br>
+    {% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+        <li> {{ recipe.recipe_name }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No recipes found</p>
+    {% endif %}
+    <a href="/add_recipe">Add Recipe</a>
+{% endblock %}

@@ -12,9 +12,12 @@ class Recipe(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=db.func.now()) # default - automatically set the date and time
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-class User(db.Model, UserMixin):
+class User(db.Model, UserMixin): # UserMixin - flask login - current_user
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     username = db.Column(db.String(150), unique=True)
     recipes = db.relationship('Recipe') # relationship between user and recipe, one to many
+
+    def __str__(self):
+        return self.username
