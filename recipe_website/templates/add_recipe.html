@@ -3,17 +3,26 @@
 {% block content %}
     <h1 align="center">Add Recipe</h1>
     <form method="POST">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-        <br>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" cols="50" rows="20" required></textarea>
-        <br>
-        <label for="ingredients">Ingredients:</label>
-        <textarea id="ingredients" name="ingredients" cols="50" rows="20" required></textarea>
-        <br>
-        <label for="instructions">Instructions:</label>
-        <textarea id="instructions" name="instructions" cols="50" rows="20" required></textarea>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" class="form-control" name="description" cols="50" rows="20" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients:</label>
+            <textarea id="ingredients" class="form-control" name="ingredients" cols="50" rows="20" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions:</label>
+            <textarea id="instructions" class="form-control" name="instructions" cols="50" rows="20" required></textarea>
+        </div>
+
         <br>
         <!-- add an input field for image upload -->
         <button type="submit">Add Recipe</button>

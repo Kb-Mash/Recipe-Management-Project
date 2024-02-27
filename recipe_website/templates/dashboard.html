@@ -6,9 +6,17 @@
     <h1 align="center">Welcome {{ user }}</h1>
     <br>
     {% if recipes %}
-    <ul>
+    <h1>My Recipes:</h1>
+    <ul class="list-group list-group-flush" id="recipes">
         {% for recipe in recipes %}
-        <li> {{ recipe.recipe_name }}</li>
+        <li class="list-group-item"> {{ recipe.recipe_name }}
+            <span aria-hidden='true'>
+                <a href="{{ url_for('views.update_recipe', id=recipe.id) }}">Edit</a>
+            </span>
+            <span aria-hidden='true'>
+                <a href="{{ url_for('views.delete_recipe', id=recipe.id) }}">Delete</a>
+            </span>
+        </li>
         {% endfor %}
     </ul>
     {% else %}

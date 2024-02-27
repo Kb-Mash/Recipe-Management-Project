@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block title %}Delete Recipe{% endblock %}
+
+{% block content %}
+<h1 align="center">Delete Recipe</h1>
+<p>Are you sure you want to delete "{{ recipe.recipe_name }}"?</p>
+<form method="POST" action="{{ url_for('views.delete_recipe', id=recipe.id) }}">
+    <button type="submit">Delete</button>
+    <a href="{{ url_for('views.dashboard') }}">Cancel</a>
+</form>
+{% endblock %}

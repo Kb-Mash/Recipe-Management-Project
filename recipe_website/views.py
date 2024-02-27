@@ -1,8 +1,9 @@
 # routes and views
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 from .models import Recipe
 from . import db
+import json
 
 # define our Blueprint
 views = Blueprint('views', __name__)
@@ -41,3 +42,32 @@ def add_recipe():
         return redirect(url_for('views.dashboard'))
 
     return render_template('add_recipe.html', user=current_user)
+
+@views.route('/update_recipe/<int:id>', methods=['POST', 'GET'])
+@login_required
+def update_recipe(id):
+    """ sending request as a form """
+    recipe = Recipe.query.get_or_404(id)
+
+    if request.method == 'POST':
+        recipe.recipe_name = request.form['title']
+        recipe.recipe_description = request.form['description']
+        recipe.recipe_ingredients = request.form['ingredients']
+        recipe.recipe_instructions = request.form['instructions']
+
+        db.session.commit()
+        flash('Recipe updated', 'success')
+        return redirect(url_for('views.dashboard'))
+
+    return render_template('update_recipe.html', recipe=recipe, user=current_user)
+
+@views.route('/delete-recipe/<int:id>', methods=['POST', 'GET'])
+@login_required
+def delete_recipe(id):
+    recipe = Recipe.query.get_or_404(id)
+    if request.method == 'POST':
+        db.session.delete(recipe)
+        db.session.commit()
+        flash('Recipe deleted successfully!', 'success')
+        return redirect(url_for('views.dashboard'))
+    return render_template('delete_recipe.html', recipe=recipe, user=current_user)
