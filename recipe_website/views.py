@@ -32,7 +32,8 @@ def add_recipe():
             recipe_name=title,
             recipe_description=description,
             recipe_ingredients=ingredients,
-            recipe_instructions=instructions
+            recipe_instructions=instructions,
+            user_id=current_user.id
         )
         # Save the recipe to the database
         db.session.add(recipe)
